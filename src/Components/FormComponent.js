@@ -1,6 +1,6 @@
-import './ChildComponent4.css';
+import './FormComponent.css';
 import React,{useState} from 'react';
-function ChildComponent4(props)
+function FormComponent(props)
 {
     const[titleval,settitleval]=useState('');
     const[priceval,setpriceval]=useState('');
@@ -56,4 +56,4 @@ return(
     </div>
 );
 }
-export default ChildComponent4;
+export default FormComponent;

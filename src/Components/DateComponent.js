@@ -1,5 +1,5 @@
-import "./ChildComponent2.css";
-function ChildComponent2(props){
+import "./DateComponent.css";
+function DateComponent(props){
     const month=props.date.toLocaleString('en-us',{month:'long'});
     const year=props.date.getFullYear();
     const date=props.date.getDate();
@@ -12,4 +12,4 @@ function ChildComponent2(props){
     )
 
 }
-export default ChildComponent2;
+export default DateComponent;

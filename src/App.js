@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
-import ChildComponent3 from './Components/ChildComponent3';
-import ChildComponent4 from './Components/ChildComponent4';
+import ListComponent from './Components/ListComponent';
+import FormComponent from './Components/FormComponent';
 let data=[
   {
     title:"Car Insurance",
@@ -36,8 +36,8 @@ function App() {
   }
   return (
     <div>
-      <ChildComponent4 onGetData={getDataValue}/>
-      <ChildComponent3 data={dataval}/>  
+      <FormComponent onGetData={getDataValue}/>
+      <ListComponent data={dataval}/>  
     </div>
   );
 }

@@ -1,10 +1,10 @@
-import './ChildComponent.css';
-import ChildComponent2 from './ChildComponent2';
-function ChildComponent(props)
+import './ExpenseComponent.css';
+import DateComponent from './DateComponent';
+function ExpenseComponent(props)
 {
     return(
         <div className="expense-item">
-            <ChildComponent2 date={props.date}/>
+            <DateComponent date={props.date}/>
             <div className="expense-item__description">
                 <h2>{props.title}</h2>
                 <div className="expense-item__price">{props.price}</div>
@@ -12,4 +12,4 @@ function ChildComponent(props)
         </div>
     );
 }
-export default ChildComponent;
+export default ExpenseComponent;
