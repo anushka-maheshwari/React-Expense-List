@@ -2,51 +2,63 @@ import './FormComponent.css';
 import React,{useState} from 'react';
 function FormComponent(props)
 {
-    const[titleval,settitleval]=useState('');
-    const[priceval,setpriceval]=useState('');
-    const[dateval,setdateval]=useState('');
-    const titlevalue=(event)=>
+    const[titleVal,setTitleVal]=useState('');
+    const[priceVal,setPriceVal]=useState('');
+    const[dateVal,setDateVal]=useState('');
+    const titleValue=(event)=>
     {
-        settitleval(event.target.value);
+        
+        setTitleVal(event.target.value);
     }
-    const pricevalue=(event)=>
+    const priceValue=(event)=>
     {
-        setpriceval(event.target.value);
+        setPriceVal(event.target.value);
     }
-    const datevalue=(event)=>
+    const dateValue=(event)=>
     {
-        setdateval(event.target.value);
+        setDateVal(event.target.value);
     }
-    const submithandler=(event)=>
+    const submitHandler=(event)=>
     {
+        console.log(titleVal,priceVal,dateVal);
         event.preventDefault();
-        const data1={
-            title:titleval,
-            price:priceval,
-            date:new Date(dateval)
+        if(titleVal==='' && priceVal==='' && dateVal==='')
+        {
+            alert("enter the values of all the field");
         }
+        if(titleVal==='' || priceVal==='' || dateVal==='')
+        {
+            alert("enter the value of empty field");
+        }
+        else{
+            const data1={
+                title:titleVal,
+                price:priceVal,
+                date:new Date(dateVal)
+            }
         console.log(data1)
-        settitleval('');
-        setpriceval('');
-        setdateval('');
+        setTitleVal('');
+        setPriceVal('');
+        setDateVal('');
         props.onGetData(data1);
+        }
     }
 
 return(
     <div className='new-expense'>
-        <form onSubmit={submithandler}>
+        <form onSubmit={submitHandler}>
             <div className='new-expense__controls'>
                 <div className='new-expense__control'>
                     <lable>Title</lable>
-                    <input type="text" value={titleval} onChange={titlevalue}/>
+                    <input type="text" value={titleVal} onChange={titleValue}/>
                 </div>
                 <div className='new-expense__control'>
                     <lable>Price</lable>
-                    <input type="number" value={priceval} min="0.01" step="0.01" onChange={pricevalue}/>
+                    <input type="number" value={priceVal} min="0.01" step="0.01" onChange={priceValue}/>
                 </div>
                 <div className='new-expense__control'>
                     <lable>Date</lable>
-                    <input type="date" value={dateval} onChange={datevalue}/>
+                    <input type="date" value={dateVal} onChange={dateValue}/>
                 </div>
             </div>
             <div className='new-expense__actions'>

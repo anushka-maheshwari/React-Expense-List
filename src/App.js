@@ -29,15 +29,15 @@ let data=[
   }
 ];
 function App() {
-  const[dataval,setdata]=useState(data);
+  const[dataVal,setData]=useState(data);
   const getDataValue=(getval)=>{
-    const updateddata=[getval,...dataval]
-    setdata(updateddata);
+  const updateddata=[getval,...dataVal]
+  setData(updateddata);
   }
   return (
     <div>
       <FormComponent onGetData={getDataValue}/>
-      <ListComponent data={dataval}/>  
+      <ListComponent data={dataVal}/>  
     </div>
   );
 }
