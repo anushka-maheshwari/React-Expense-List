@@ -22,13 +22,19 @@ function FormComponent(props)
     {
         console.log(titleVal,priceVal,dateVal);
         event.preventDefault();
-        if(titleVal==='' && priceVal==='' && dateVal==='')
+        if(titleVal==='' && priceVal===isNaN() && dateVal==='')
         {
             alert("enter the values of all the field");
+            setTitleVal('');
+            setPriceVal('');
+            setDateVal('');
         }
-        if(titleVal==='' || priceVal==='' || dateVal==='')
+        if(titleVal==='' || priceVal===isNaN() || dateVal==='')
         {
             alert("enter the value of empty field");
+            setTitleVal('');
+            setPriceVal('');
+            setDateVal('');
         }
         else{
             const data1={
