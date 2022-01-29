@@ -3,37 +3,17 @@ import React,{useState} from 'react';
 function FormComponent(props)
 {
     const[titleVal,setTitleVal]=useState('');
-    const[priceVal,setPriceVal]=useState('');
+    const[priceVal,setPriceVal]=useState(0);
     const[dateVal,setDateVal]=useState('');
-    const titleValue=(event)=>
-    {
-        
-        setTitleVal(event.target.value);
-    }
-    const priceValue=(event)=>
-    {
-        setPriceVal(event.target.value);
-    }
-    const dateValue=(event)=>
-    {
-        setDateVal(event.target.value);
-    }
     const submitHandler=(event)=>
     {
         console.log(titleVal,priceVal,dateVal);
         event.preventDefault();
-        if(titleVal==='' && priceVal===isNaN() && dateVal==='')
+        if(titleVal==='' || dateVal==='')
         {
-            alert("enter the values of all the field");
+            alert("enter the  value of empty field");
             setTitleVal('');
-            setPriceVal('');
-            setDateVal('');
-        }
-        if(titleVal==='' || priceVal===isNaN() || dateVal==='')
-        {
-            alert("enter the value of empty field");
-            setTitleVal('');
-            setPriceVal('');
+            setPriceVal(0);
             setDateVal('');
         }
         else{
@@ -44,7 +24,7 @@ function FormComponent(props)
             }
         console.log(data1)
         setTitleVal('');
-        setPriceVal('');
+        setPriceVal(0);
         setDateVal('');
         props.onGetData(data1);
         }
@@ -56,15 +36,15 @@ return(
             <div className='new-expense__controls'>
                 <div className='new-expense__control'>
                     <lable>Title</lable>
-                    <input type="text" value={titleVal} onChange={titleValue}/>
+                    <input type="text" value={titleVal} pattern="[a-zA-Z]+" onChange={(e)=>{setTitleVal(e.target.value)}}/>
                 </div>
                 <div className='new-expense__control'>
                     <lable>Price</lable>
-                    <input type="number" value={priceVal} min="0.01" step="0.01" onChange={priceValue}/>
+                    <input type="number" value={priceVal}  onChange={(e)=>{setPriceVal(e.target.value)}}/>
                 </div>
                 <div className='new-expense__control'>
                     <lable>Date</lable>
-                    <input type="date" value={dateVal} onChange={dateValue}/>
+                    <input type="date" value={dateVal} onChange={(e)=>{setDateVal(e.target.value)}}/>
                 </div>
             </div>
             <div className='new-expense__actions'>
